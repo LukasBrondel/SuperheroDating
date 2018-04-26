@@ -58,7 +58,7 @@ $loggedInSuperhero = $database->query("SELECT * FROM superheroes WHERE email='br
             <?php echo $superhero['amountOfLikes'];?> superheroes liked this profile.</b>
             
             
-<a href="./like-this-profile.php?email=<?php echo $superhero ['email']; ?>">Like</a>
+            <a href="./like-this-profile.php?email=<?php echo $superhero ['email']; ?>">Like this profile!</a>
             
             
             <hr/>
@@ -69,6 +69,7 @@ $loggedInSuperhero = $database->query("SELECT * FROM superheroes WHERE email='br
                 <p>
                     <strong><?php echo $comment['alias']; ?>:</strong>
                     <?php echo $comment['text']; ?>
+                    <a href="./delete-comment.php?id=<?php echo $comment ['id']; ?>">Delete</a>
                 </p>
                 <?php 
                     }
