@@ -56,21 +56,22 @@ $loggedInSuperhero = $database->query("SELECT * FROM superheroes WHERE email='br
             <hr/>
             <b>
             <?php echo $superhero['amountOfLikes'];?> superheroes liked this profile.</b>
-            <form action="like-this-profile.php" method="post">
-            <input type="hidden" name="amountOfLikes" value="<?php echo $superhero['amountOfLikes']; ?>">
-                <input type="hidden" name="superhero_id" value="<?php echo $superhero['id']; ?>">
-                <button type="submit">Like this profile</button>
-            </form>
+            
+            
+<a href="./like-this-profile.php?email=<?php echo $superhero ['email']; ?>">Like</a>
+            
+            
             <hr/>
+            
             <?php 
                 foreach ($comments as $comment) {
-            ?>
-            <dl>
-                <dt><?php echo $comment['alias']; ?></dt>
-                <dd><?php echo $comment['text']; ?></dd>
-            </dl>
-            <?php 
-                }
+                ?>
+                <p>
+                    <strong><?php echo $comment['alias']; ?>:</strong>
+                    <?php echo $comment['text']; ?>
+                </p>
+                <?php 
+                    }
             ?>
                 
             <form action="send-comment.php" method="post">
@@ -79,6 +80,7 @@ $loggedInSuperhero = $database->query("SELECT * FROM superheroes WHERE email='br
                 <textarea rows="4" cols="50" name="text" placeholder="Enter comment here."></textarea>
                 <button type="submit">Post comment</button>
             </form>
+            
 		</article>
 		<?php
 	}
