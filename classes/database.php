@@ -30,6 +30,11 @@ class Database {
 		$query = $this->connection->query($sql);
 		return $query->fetchAll();
 	}
+    
+    // To be used for all UPDATE (no prepared statements)
+	public function queryWithoutFetchAll($sql) {
+		$query = $this->connection->query($sql);
+	}
 
 	// To be used for all prepared statements
 	// 	$sql [string] - The sql to be prepared with palceholders
